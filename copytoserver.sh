@@ -1,0 +1,3 @@
+zip -r ./Builds/build.zip ./Builds/Linux/ -x *.sqlite* &&
+scp ./Builds/build.zip USER@MYCOOLIPADDRESS.COM:build
+ssh USER@MYCOOLIPADDRESS.COM 'cp ~/build/Builds/Linux/StandAlone_Data/Database.sqlite ~/backup/Database.sqlite && killall StandAlone.x86_64 || ls && cd ~/build && rm -r Builds && unzip build.zip && cd Builds/Linux && ls && sudo chmod 777 StandAlone.x86_64 && cp ~/backup/Database.sqlite ~/build/Builds/Linux/StandAlone_Data/Database.sqlite && ./StandAlone.x86_64 -logfile /dev/stdout &'
